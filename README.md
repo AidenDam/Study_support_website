@@ -15,3 +15,7 @@ docker compose logs [app]
 ``` bash
 docker compose down
 ```
+
+app: http://localhost:8000/
+
+phpmyaddmin: http://localhost:8080/
