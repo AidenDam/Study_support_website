@@ -1,5 +1,4 @@
 <?php
-
-require_once("./params.php");
-
-echo DB_NAME;
+session_start();
+require_once 'bootstrap.php';
+$app = new App();
