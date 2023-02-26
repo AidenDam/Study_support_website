@@ -1,31 +1,38 @@
+# services:
+#   jugde:
+#     image: ubuntu:latest
+#     ports:
+#       - 8000:80
+#     volumes:
+#       - ./src:/home/
+#     environment:
+#       TZ: "Asia/Ho_Chi_Minh"
+#     command: >
+#       bash -c "ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone && cd /home && bash install.sh"
+
 services:
   php:
-    image: php:8.2.1-apache
+    build: .
     ports:
       - 8000:80
     volumes:
-      - ./src:/var/www/html
+      - ./src:/home/judge/onlinejudge
     environment:
       MYSQL_HOST: mysql
-      MYSQL_USER: buns
-      MYSQL_PASSWORD: buns
-      MYSQL_DB: study_support
-    command: >
-      bash -c "a2enmod rewrite
-      && apache2-foreground"
+    depends_on:
+      - mysql
+    # command: >
+    #   bash -c "bash install.sh"
 
-#   mysql:
-#     image: mysql:8.0.32
-#     ports:
-#       - 3306:3306
-#     volumes:
-#       - mysql-data:/var/lib/mysql
-#     environment:
-#       MYSQL_ROOT_PASSWORD: root
-#       MYSQL_DATABASE: study_support
-#       MYSQL_USER: buns
-#       MYSQL_PASSWORD: buns
-#     restart: always
+  mysql:
+    image: mysql:8.0.32
+    ports:
+      - 3306:3306
+    volumes:
+      - mysql-data:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: 123456
+    restart: always
 
 #   phpmyadmin:
 #     image: phpmyadmin/phpmyadmin:latest
@@ -38,7 +45,6 @@ services:
 #       PMA_ARBITRARY: 1
 #     restart: always
 
-# volumes:
-#   mysql-data: 
-#     name: mysql-data
-
+volumes:
+  mysql-data: 
+    name: mysql-data
