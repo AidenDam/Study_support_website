@@ -1,5 +1,5 @@
 # Study Support Website
-Study support website for Algorithms
+This is the source of the website to support the HaUI Informatics Olympiad.
 
 ## RUN
 
@@ -9,7 +9,7 @@ docker compose up -d
 ```
 - view log
 ``` bash
-docker compose logs [app]
+docker compose logs
 ```
 - stop
 ``` bash
@@ -17,5 +17,3 @@ docker compose down
 ```
 
 app: http://localhost:8000/
-
-phpmyaddmin: http://localhost:8080/
