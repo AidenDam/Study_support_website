@@ -56,7 +56,7 @@ $this->title = Yii::t('app', 'Home');
             }
 
             @keyframes fade {
-                from {opacity: .4} 
+                from {opacity: 1} 
                 to {opacity: 1}
             }
         </style>
