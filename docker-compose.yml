@@ -1,15 +1,3 @@
-# services:
-#   jugde:
-#     image: ubuntu:latest
-#     ports:
-#       - 8000:80
-#     volumes:
-#       - ./src:/home/
-#     environment:
-#       TZ: "Asia/Ho_Chi_Minh"
-#     command: >
-#       bash -c "ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone && cd /home && bash install.sh"
-
 services:
   php:
     build: .
@@ -17,34 +5,4 @@ services:
       - 8000:80
     volumes:
       - ./src:/home/judge/onlinejudge
-    environment:
-      MYSQL_HOST: mysql
-    depends_on:
-      - mysql
-    # command: >
-    #   bash -c "bash install.sh"
-
-  mysql:
-    image: mysql:8.0.32
-    ports:
-      - 3306:3306
-    volumes:
-      - mysql-data:/var/lib/mysql
-    environment:
-      MYSQL_ROOT_PASSWORD: 123456
-    restart: always
-
-#   phpmyadmin:
-#     image: phpmyadmin/phpmyadmin:latest
-#     ports:
-#       - 8080:80
-#     environment:
-#       PMA_HOST: mysql
-#       PMA_USER: buns
-#       PMA_PASSWORD: buns
-#       PMA_ARBITRARY: 1
-#     restart: always
-
-volumes:
-  mysql-data: 
-    name: mysql-data
+    tty: true

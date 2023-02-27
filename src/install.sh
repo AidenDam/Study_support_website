@@ -169,7 +169,7 @@ config_onlinejudge(){
     DBNAME="onlinejudge"
     DBUSER="root"
     DBPASS="123456"
-    PHP_VERSION=8.`php -v>&1|awk '{print $2}'|awk -F '.' '{print $2}'`
+    PHP_VERSION=7.`php -v>&1|awk '{print $2}'|awk -F '.' '{print $2}'`
 
     if check_sys sysRelease centos; then
         mv /etc/nginx/conf.d/default.conf /etc/nginx/conf.d/default.back
@@ -242,7 +242,7 @@ config_firewall(){
 }
 
 enable_server(){
-    PHP_VERSION=8.`php -v>&1|awk '{print $2}'|awk -F '.' '{print $2}'`
+    PHP_VERSION=7.`php -v>&1|awk '{print $2}'|awk -F '.' '{print $2}'`
     # startup service
     service nginx start
     
@@ -297,3 +297,5 @@ install_onlinejudge(){
 }
 
 install_onlinejudge
+
+bash

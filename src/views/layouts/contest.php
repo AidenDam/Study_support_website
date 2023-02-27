@@ -51,7 +51,7 @@ $status = $model->getRunStatus();
                 </div>
                 <div class="pull-right">
                     <a></a>
-                    <a href="/contest/index?lang=en-US"><img src="<?= Yii::getAlias('@web') ?>/images/uk.ico" alr="English" width="50px" height="50px"></a> <a href="/contest/index?lang=vi"><img src="<?= Yii::getAlias('@web') ?>/images/vn.ico" alr="Tieng Viet" width="50px" height="50px"></a>
+                    <a href="/contest/index?lang=en-US&<?= preg_replace('/(lang=en-US&*)|(lang=vi&*)|&$/i', '', $_SERVER['QUERY_STRING']) ?>"><img src="<?= Yii::getAlias('@web') ?>/images/uk.ico" alr="English" width="50px" height="50px"></a> <a href="/contest/index?lang=vi&<?= preg_replace('/(lang=en-US&*)|(lang=vi&*)|&$/i', '', $_SERVER['QUERY_STRING']) ?>"><img src="<?= Yii::getAlias('@web') ?>/images/vn.ico" alr="Tieng Viet" width="50px" height="50px"></a>
                     <br><?= Yii::t('app','Select language')?>
                 </div> 
             </div>
