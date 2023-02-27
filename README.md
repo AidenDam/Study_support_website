@@ -2,7 +2,7 @@
 This is the source of the website to support the HaUI Informatics Olympiad.
 
 ## RUN
-
+### Start from Dockerfile
 - start
 ``` bash
 docker compose up -d
@@ -15,5 +15,9 @@ docker compose logs
 ``` bash
 docker compose down
 ```
+### Start from Dockerhub
+``` bash
+docker run -it --rm -p 8000:80 aiden827/onlinejudge
+```
 
-app: http://localhost:8000/
+Host app: http://localhost:8000/

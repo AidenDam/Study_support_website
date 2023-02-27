@@ -298,4 +298,5 @@ install_onlinejudge(){
 
 install_onlinejudge
 
+cd /home/judge/onlinejudge/
 bash
