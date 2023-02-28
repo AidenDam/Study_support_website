@@ -128,10 +128,9 @@ class UserController extends Controller
                 Yii::$app->db->createCommand()->update('{{%user}}', [
                     'password_hash' => Yii::$app->security->generatePasswordHash($newPassword)
                 ], ['id' => $model->id])->execute();
-            } else if (!empty($role)) {
-                $model->role = intval($role);
-                $model->save();
             }
+            $model->role = intval($role);
+            $model->save();
             Yii::$app->session->setFlash('success', Yii::t('app', 'Saved successfully'));
             return $this->refresh();
         }

@@ -85,7 +85,7 @@ class User extends ActiveRecord implements IdentityInterface
             [['username', 'nickname'], 'required'],
             [['nickname'], 'string', 'max' => 16],
             ['password', 'string', 'min' => 6, 'max' => 16],
-            ['username', 'match', 'pattern' => '/^(?!_)(?!.*?_$)(?!\d{4,16}$)[a-z\d_]{4,16}$/i', 'message' => '用户名只能以数字、字母、下划线，且非纯数字，长度在 4 - 16 位之间'],
+            ['username', 'match', 'pattern' => '/^(?!_)(?!.*?_$)(?!\d{4,16}$)[a-z\d_]{4,16}$/i', 'message' => 'Username can only contain numbers, letters, underscores, and not pure numbers, and the length is between 4 and 16 characters.'],
             ['username', 'match', 'pattern' => '/^(?!c[\d]+user[\d])/', 'message' => '以c+数字+user+数字作为账户名系统保留', 'when' => function($model) {
                 return $model->role != User::ROLE_PLAYER;
             }],

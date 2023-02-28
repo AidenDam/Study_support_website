@@ -211,15 +211,15 @@ class ContestController extends Controller
                         ->where('u.username=:name and c.contest_id=:cid', [':name' => $username, ':cid' => $model->id])
                         ->one();
                     if (!isset($query['user_id'])) {
-                        $message .= $username . " 不存在该用户<br>";
+                        $message .= $username . " This user does not exist.<br>";
                     } else if (!$query['exist']) {
                         Yii::$app->db->createCommand()->insert('{{%contest_user}}', [
                             'user_id' => $query['user_id'],
                             'contest_id' => $model->id,
                         ])->execute();
-                        $message .= $username . " 添加成功<br>";
+                        $message .= $username . " Added successfully.<br>";
                     } else {
-                        $message .= $username . " 已参加比赛<br>";
+                        $message .= $username . " Participated in the competition.<br>";
                     }
                 }
                 Yii::$app->session->setFlash('info', $message);
