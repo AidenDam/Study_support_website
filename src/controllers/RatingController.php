@@ -11,7 +11,7 @@ class RatingController extends BaseController
 {
     public function actionIndex()
     {
-        $query = User::find()->orderBy('rating DESC');
+        $query = User::find()->where(['<>', 'role', User::ROLE_ADMIN])->orderBy(['rating' => SORT_DESC]);
         $top3users = $query->limit(3)->all();
         $defaultPageSize = 50;
         $countQuery = clone $query;
@@ -38,6 +38,7 @@ class RatingController extends BaseController
             ->from('{{%user}} AS u')
             ->innerJoin('(SELECT COUNT(DISTINCT problem_id) AS solved, created_by FROM {{%solution}} WHERE result=4 AND status=1 GROUP BY created_by ORDER BY solved DESC) as s',
                 'u.id=s.created_by')
+            ->where(['<>', 'role', User::ROLE_ADMIN])
             ->orderBy('solved DESC, id');
         $top3users = $query->limit(3)->all();
         $defaultPageSize = 50;
