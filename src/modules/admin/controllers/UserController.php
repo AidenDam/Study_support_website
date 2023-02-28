@@ -129,8 +129,10 @@ class UserController extends Controller
                     'password_hash' => Yii::$app->security->generatePasswordHash($newPassword)
                 ], ['id' => $model->id])->execute();
             }
-            $model->role = intval($role);
-            $model->save();
+            if ($model->role != intval($role)) {
+                $model->role = intval($role);
+                $model->save();
+            }
             Yii::$app->session->setFlash('success', Yii::t('app', 'Saved successfully'));
             return $this->refresh();
         }

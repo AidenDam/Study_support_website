@@ -72,7 +72,7 @@ class PasswordResetRequestForm extends Model
             ->setCharset('UTF-8')
             ->setFrom([Yii::$app->setting->get('emailUsername') => Yii::$app->setting->get('ojName')])
             ->setTo($this->email)
-            ->setSubject('重置密码 - ' . Yii::$app->setting->get('ojName'))
+            ->setSubject('Reset Password - ' . Yii::$app->setting->get('ojName'))
             ->send();
     }
 }

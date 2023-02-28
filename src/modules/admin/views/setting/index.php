@@ -74,7 +74,7 @@ $this->title = Yii::t('app', 'Setting');
         <div class="form-group">
             <?= Html::label('Username', 'emailUsername', ['class' => 'col-sm-2 control-label']) ?>
             <div class="col-sm-10">
-                <?= Html::textInput('emailUsername', $settings['emailUsername'], ['class' => 'form-control', 'placeholder' => 'no-reply@truongt36.edu.vn']) ?>
+                <?= Html::textInput('emailUsername', $settings['emailUsername'], ['class' => 'form-control', 'placeholder' => 'no-reply@no-email.com.vn']) ?>
             </div>
         </div>
         <div class="form-group">

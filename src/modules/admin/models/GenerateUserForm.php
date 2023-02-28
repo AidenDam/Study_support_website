@@ -114,12 +114,15 @@ class GenerateUserForm extends Model
             $user = new User();
             $user->username = $username;
             $user->nickname = $username;
-            $user->email = $username . '@truongt36.edu.vn';
+            $user->email = $username . '@no-email.com.vn';
             $user->role = User::ROLE_USER;
             $user->setPassword($password);
             $user->generateAuthKey();
             if ($user->save()) {
                 echo "Account number {$i}/{$count}: account {$username} was created successfully";
+                Yii::$app->db->createCommand()->insert('{{%user_profile}}', [
+                    'user_id' => $user->id,
+                ])->execute();
             } else {
                 $err = $user->getErrors();
                 echo "Account number {$i}/{$count}: account {$username} create failed! Reason for failure: ";
