@@ -131,9 +131,9 @@ $this->registerAssetBundle('yii\bootstrap\BootstrapPluginAsset');
 <footer class="footer">
     <div class="text-center">
         <p class="text-info"> Contact me at: </p><p>   
-        <a href="https://facebook.com/vietthientran.301"><img src="<?= Yii::getAlias('@web') ?>/facebook.ico"> Facebook   |   </a>
-        <a href="https://www.youtube.com/channel/UCKenIExlFhPC0_ZC3kluKqQ"><img src="<?= Yii::getAlias('@web') ?>/youtube.ico"> Youtube   |   </a>
-        <a href="https://www.github.com/Greenhat1998"><img src="<?= Yii::getAlias('@web') ?>/github.ico"> Github </a>
+        <a href="https://facebook.com/vietthientran.301"><img src="<?= Yii::getAlias('@web') ?>/images/facebook.ico"> Facebook   |   </a>
+        <a href="https://www.youtube.com/channel/UCKenIExlFhPC0_ZC3kluKqQ"><img src="<?= Yii::getAlias('@web') ?>/images/youtube.ico"> Youtube   |   </a>
+        <a href="https://www.github.com/Greenhat1998"><img src="<?= Yii::getAlias('@web') ?>/images/github.ico"> Github </a>
         </p>
     </div>
 </footer>
