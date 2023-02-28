@@ -1,6 +1,7 @@
 services:
   app:
-    build: .
+    # build: .
+    image: aiden827/onlinejudge
     ports:
       - 8000:80
     volumes:
